@@ -73,7 +73,7 @@ def get_tokenizer(args):
 def load_dataset_splits(args):
     if args.mode == 'pt':
         from datasets import load_dataset  # huggingface datasets
-        dataset = load_dataset("text", data_files={"train": ["data/shakespeare_input.txt"], 'validation': ["data/shakespeare_input_test.txt"]})
+        dataset = load_dataset("text", data_files={"train": ["../../../data/shakespeare_input.txt"], 'validation': ["../../../data/shakespeare_input_test.txt"]})
         # dataset = datasets.load_dataset(
         #     'c4',
         #     'en',
@@ -89,9 +89,9 @@ def load_dataset_splits(args):
             'test': dataset['validation'],
         }
 
-        assert (
-            dataset['train'].n_shards == 1024
-        ), "We want to have many shards for efficient processing with num_workes in PyTorch dataloader"
+        # assert (
+        #     dataset['train'].n_shards == 1024
+        # ), "We want to have many shards for efficient processing with num_workes in PyTorch dataloader"
     elif args.mode == 'ft':
         dataset_splits = datasets.load_dataset(
             args.data.exec_file_path,
@@ -135,7 +135,8 @@ def process_dataset(dataset_splits, args, tokenizer):
                 remove_columns=['text'],
             )
 
-            dataset_split = dataset_split.shuffle(buffer_size=10_000, seed=args.seed)
+            # dataset_split = dataset_split.shuffle(buffer_size=10_000, seed=args.seed)
+            dataset_split = dataset_split.shuffle(seed=args.seed)
             final_datasets[split] = dataset_split
     elif args.mode == 'ft':
         final_datasets = dataset_splits
@@ -191,10 +192,10 @@ def get_dataloaders(tokenizer, config, args):
 
         shuffle = (split == 'train') and not is_iterable
 
-        if args.mode == 'ft' and split == 'train':
-            assert shuffle is True
-        else:
-            assert shuffle is False
+        # if args.mode == 'ft' and split == 'train':
+        #     assert shuffle is True
+        # else:
+        #     assert shuffle is False
 
         dataloaders[split] = DataLoader(
             dataset[split],

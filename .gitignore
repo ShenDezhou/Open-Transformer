@@ -4,5 +4,3 @@ logs
 scripts
 .neptune
 
-configs/local_env/
-configs/task/

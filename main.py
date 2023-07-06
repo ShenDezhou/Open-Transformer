@@ -4,7 +4,7 @@ import hydra
 import torch
 import time
 
-from .utils import (
+from utils import (
     setup_basics,
     train,
     predict,

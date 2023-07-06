@@ -1,7 +1,7 @@
 # Training A Transformer Model
 
 ```python
-python -m main \
+python main.py \
     optim.name={adafactor,adamwscale} \
     optim.lr_scheduler={legacy,cosine}
 ```
