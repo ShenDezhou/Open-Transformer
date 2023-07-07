@@ -32,3 +32,17 @@ Setting `model.random_init=true model.checkpoint_path=""` corresponds to a rando
 ## 训练日志
 
 一个参考训练日志在[T5_pretraining_for_beginner.ipynb](colab%2FT5_pretraining_for_beginner.ipynb)。
+
+## 致谢
+
+项目作者： Brian Shen. Twitter @dezhou.
+
+## 关注我们
+欢迎关注知乎专栏号。
+
+[深度学习兴趣小组](https://www.zhihu.com/column/thuil)
+
+## 问题反馈 & 贡献
+如有问题，请在GitHub Issue中提交。
+我们没有运营，鼓励网友互相帮助解决问题。
+如果发现实现上的问题或愿意共同建设该项目，请提交Pull Request。
