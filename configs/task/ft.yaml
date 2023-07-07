@@ -16,7 +16,7 @@ data:
   num_neg_examples: 0
   add_explanation: False
   tk_instruct: False
-  exec_file_path: ./nanoT5/utils/ni_dataset.py
+  exec_file_path: ./utils/ni_dataset.py
   data_dir: ./data/splits/default
   task_dir: ./data/tasks
 

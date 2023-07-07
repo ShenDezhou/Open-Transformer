@@ -1,1 +1,10 @@
 # @package _global_
+
+optim:
+  name: adamwscale #adafactor,adamwscale
+  lr_scheduler: legacy #legacy,cosine
+  batch_size: 16
+
+
+model:
+  compile: true
